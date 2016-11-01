@@ -13,9 +13,11 @@
     "error": "^7.0.2",
     "http-hash": "^2.0.0",
     "http-methods": "^1.0.0",
+    "introspect": "0.0.3",
     "xtend": "^4.0.0"
   },
   "devDependencies": {
+    "greenkeeper-postpublish": "^1.0.1",
     "istanbul": "^0.4.5",
     "opn": "^4.0.2",
     "tape": "^4.6.2",
@@ -23,7 +25,8 @@
   },
   "scripts": {
     "test": "istanbul cover --print detail --report html test/index.js",
-    "view-cover": "opn coverage/index.html"
+    "view-cover": "opn coverage/index.html",
+    "postpublish": "greenkeeper-postpublish"
   },
   "main": "index"
 }

@@ -5,6 +5,8 @@ var url = require('url');
 var TypedError = require('error/typed');
 var extend = require('xtend');
 var httpMethods = require('http-methods/method');
+var introspect = require('introspect')
+var extend = require('xtend')
 
 var ExpectedCallbackError = TypedError({
     type: 'http-hash-router.expected.callback',
@@ -31,7 +33,12 @@ function HttpHashRouter() {
     return handleRequest;
 
     function set(name, handler) {
-        if (handler && typeof handler === 'object') {
+        if (handler && typeof handler === 'function') {
+            handler = maybeWrap(handler)
+        } else if (handler && typeof handler === 'object') {
+            for (var key in handler) {
+                handler[key] = maybeWrap(handler[key])
+            }
             handler = httpMethods(handler);
         }
 
@@ -60,4 +67,20 @@ function HttpHashRouter() {
         });
         return route.handler(req, res, opts, cb);
     }
+}
+
+function maybeWrap (fn) {
+    var args = introspect(fn)
+    // hacky but whateves
+    if (args.length === 3 && args[2] !== 'opts') return makeRoute(fn)
+    else return fn
+}
+
+function makeRoute (layer) {
+  function route (req, res, opts, cb) {
+    req.opts = extend(req.opts, opts)
+    layer(req, res, cb)
+  }
+
+  return route
 }
