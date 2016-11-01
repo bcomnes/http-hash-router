@@ -1,4 +1,5 @@
 # http-hash-router
+[![Build Status](https://travis-ci.org/bcomnes/http-hash-router.svg?branch=master)](https://travis-ci.org/bcomnes/http-hash-router)
 
 Server route handler for http-hash
 
