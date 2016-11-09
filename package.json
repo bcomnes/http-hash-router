@@ -21,7 +21,7 @@
     "istanbul": "^0.4.5",
     "opn": "^4.0.2",
     "tape": "^4.6.2",
-    "test-server-request": "^2.0.1"
+    "test-server-request": "^3.0.0"
   },
   "scripts": {
     "test": "istanbul cover --print detail --report html test/index.js",
