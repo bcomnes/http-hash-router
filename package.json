@@ -19,9 +19,9 @@
   "devDependencies": {
     "greenkeeper-postpublish": "^1.0.1",
     "istanbul": "^0.4.5",
-    "opn": "^4.0.2",
+    "opn": "^5.0.0",
     "tape": "^4.6.2",
-    "test-server-request": "^2.0.1",
+    "test-server-request": "^3.0.0",
     "http-hash-router": "^1.1.0"
   },
   "scripts": {
