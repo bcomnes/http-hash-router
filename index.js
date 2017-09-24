@@ -56,7 +56,8 @@ function HttpHashRouter() {
 
         opts = extend(opts, {
             params: route.params,
-            splat: route.splat
+            splat: route.splat,
+            src: route.src
         });
         return route.handler(req, res, opts, cb);
     }

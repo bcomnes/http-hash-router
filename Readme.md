@@ -78,7 +78,8 @@ It is expected that you call the `router` function with the
 arguments.
 
 The third argument is the options object. The `router` will
-copy the options object and set the `params` and `splat` field.
+copy the options object and set the `params`, `splat`, and
+`src` field.
 
 The fourth argument is a callback function, this function
 either gets called with a `http-hash-router.not-found` error
@@ -121,14 +122,15 @@ Your handler function will get called with four arguments.
  - `req` the http request stream
  - `res` the http response stream
  - `opts` options object. This contains properties defined
-    in the server and also contains the `params` and `splat`
-    fields.
+    in the server and also contains the `params`, `splat`,
+    and `src` fields.
  - `cb` callback.
 
 If your route pattern contains a param, i.e. `"/foo/:bar"` or
-your route pattern contains a splat, i.e. `"/foo/*"` then 
-the values of the params and splat will be passed to the
-`params` and `splat` field on `opts`.
+your route pattern contains a splat, i.e. `"/foo/*"` then
+the values of the params, splat, and original source route
+will be passed to the `params`, `splat`, and `src` field on
+`opts`.
 
   [http-hash]: https://github.com/Matt-Esch/http-hash
   [http-hash-set]: https://github.com/Matt-Esch/http-hash#hashsetpath-handler
