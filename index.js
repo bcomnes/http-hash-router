@@ -72,6 +72,7 @@ function HttpHashRouter() {
 function maybeWrap (fn) {
     var args = introspect(fn)
     // hacky but whateves
+    // TODO This was a terrible idea. Undo this
     if (args.length === 3 && args[2] !== 'opts') return makeRoute(fn)
     else return fn
 }
